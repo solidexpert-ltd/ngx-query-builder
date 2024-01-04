@@ -1,0 +1,11 @@
+{
+  "name": "angular2-query-builder",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": ">15.0.3",
+    "@angular/core": ">=15.0.3",
+    "@angular/forms": ">=15.0.3",
+    "rxjs": ">=6.0.0",
+    "tslib": ">=1.8.0"
+  }
+}
