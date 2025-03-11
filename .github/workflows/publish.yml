@@ -2,8 +2,8 @@ name: Publish to NPM
 
 on:
   push:
-    tags:
-      - 'v*' # Запуск при создании нового тега версии
+    branches:
+      - '**'
 
 jobs:
   build-and-publish:
