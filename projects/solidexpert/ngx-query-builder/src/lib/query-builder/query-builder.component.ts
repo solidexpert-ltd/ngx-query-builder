@@ -49,6 +49,7 @@ import {
   ViewChild,
   ElementRef
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export const CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -66,6 +67,7 @@ export const VALIDATOR: any = {
   selector: 'query-builder',
   templateUrl: './query-builder.component.html',
   styleUrls: ['./query-builder.component.scss'],
+  imports: [CommonModule],
   providers: [CONTROL_VALUE_ACCESSOR, VALIDATOR]
 })
 export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
