@@ -27,5 +27,6 @@ jobs:
 
       - name: Publish to NPM
         run: npm publish --access public
+        working-directory: dist/solidexpert/ngx-query-builder
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
