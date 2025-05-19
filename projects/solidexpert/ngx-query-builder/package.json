@@ -1,6 +1,21 @@
 {
   "name": "@solidexpert/ngx-query-builder",
-  "version": "19.2.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solidexpert-ltd/ngx-query-builder"
+  },
+  "description": "Angular library for building query strings",
+  "keywords": [
+    "angular",
+    "query",
+    "builder",
+    "string",
+    "query-string"
+  ],
+  "author": "Solidexpert",
+  "license": "MIT",
+  "homepage": "https://solid.expert",
+  "version": "19.2.5",
   "peerDependencies": {
     "@angular/common": "~19.0.0",
     "@angular/core": "~19.0.0"

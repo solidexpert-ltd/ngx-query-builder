@@ -1,11 +1,15 @@
 # Angular-QueryBuilder
-A modernized Angular 4+ query builder based on jQuery QueryBuilder. Support for heavy customization with Angular components and provides a flexible way to handle custom data types.
+A modernized Angular 15.x.x - 19.x.x query builder based on jQuery QueryBuilder. Support for heavy customization with Angular components and provides a flexible way to handle custom data types.
 
 # Getting Started
 
 ## Install
 
-- Angular 15 use 15.0.x
+| Angular Version | Package Version |
+|-----------------|----------------|
+| Angular 15      | 15.0.x         |
+| Angular 18      | 18.0.x         |
+| Angular 19      | 19.x.x         |
 
 `npm install @solidexpert/ngx-query-builder`
 
@@ -305,7 +309,7 @@ Directive to replace the default remove single rule button component.
 |`removeRule`|`(rule: Rule) => void`|Function to handle removing a rule|
 
 ## Dependencies
-- Angular 8+
+- Angular 19+
 
 That's it.
 
