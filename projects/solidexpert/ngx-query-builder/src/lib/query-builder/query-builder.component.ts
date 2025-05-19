@@ -177,10 +177,12 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
     const config = this.config;
     const type = typeof config;
     if (type === 'object') {
+      
       this.fields = Object.keys(config.fields).map((value) => {
         const field = config.fields[value];
         field.value = field.value || value;
         return field;
+      
       });
       if (config.entities) {
         this.entities = Object.keys(config.entities).map((value) => {
