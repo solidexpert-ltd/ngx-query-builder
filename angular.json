@@ -10,7 +10,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular-devkit/build-angular:library",
           "options": {
             "project": "projects/solidexpert/ngx-query-builder/ng-package.json"
           },
