@@ -1,1 +1,9 @@
 node_modules
+dist/
+tmp/
+*.log
+yarn.lock
+.DS_Store
+.angular/cache
+.idea/
+.vscode/
