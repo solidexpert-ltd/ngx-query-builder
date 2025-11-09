@@ -28,7 +28,7 @@ jobs:
           const path = require('path');
 
           const rootPkgPath = path.resolve('package.json');
-          const libPkgPath = path.resolve('projects/solidexpert/ngx-query-builder/package.json');
+          const libPkgPath = path.resolve('package.json');
 
           const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'));
 

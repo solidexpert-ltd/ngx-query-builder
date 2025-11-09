@@ -1,6 +1,7 @@
 import {
   AbstractControl,
   ControlValueAccessor,
+  FormsModule,
   NG_VALUE_ACCESSOR,
   NG_VALIDATORS,
   ValidationErrors,
@@ -68,8 +69,8 @@ export const VALIDATOR: any = {
   selector: "query-builder",
   templateUrl: "./query-builder.component.html",
   styleUrls: ["./query-builder.component.scss"],
-  imports: [CommonModule],
-    providers: [CONTROL_VALUE_ACCESSOR, VALIDATOR]
+  imports: [CommonModule, FormsModule],
+  providers: [CONTROL_VALUE_ACCESSOR, VALIDATOR]
 })
 export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, Validator {
   public fields: Field[];
@@ -552,7 +553,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
     this.handleDataChange();
   }
 
-  changeField(fieldValue: string, rule: Rule): void {
+  changeField(fieldValue: string | null, rule: Rule): void {
     if (this.disabled) {
       return;
     }
@@ -560,7 +561,20 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
     const inputContext = this.inputContextCache.get(rule);
     const currentField = inputContext && inputContext.field;
 
+    if (fieldValue == null) {
+      this.handleTouched();
+      this.handleDataChange();
+      return;
+    }
+
     const nextField: Field = this.config.fields[fieldValue];
+
+    if (!nextField) {
+      console.warn(`No configuration found for field '${fieldValue}'.`);
+      this.handleTouched();
+      this.handleDataChange();
+      return;
+    }
 
     const nextValue = this.calculateFieldChangeValue(currentField as Field, nextField, rule.value);
 
@@ -586,21 +600,26 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
     this.handleDataChange();
   }
 
-  changeEntity(entityValue: string, rule: Rule, index: number, data: RuleSet): void {
+  changeEntity(entityValue: string | null, rule: Rule, index: number, data: RuleSet): void {
     if (this.disabled) {
       return;
     }
     let i = index;
     let rs = data;
-    const entity: Entity = this.entities.find((e) => e.value === entityValue) as Entity;
-    const defaultField: Field = this.getDefaultField(entity) as Field;
+    if (entityValue == null) {
+      this.handleTouched();
+      this.handleDataChange();
+      return;
+    }
+    const entity = this.entities.find((e) => e.value === entityValue);
+    const defaultField = entity ? (this.getDefaultField(entity) as Field | null) : null;
     if (!rs) {
       rs = this.data;
       i = rs.rules.findIndex((x) => x === rule);
     }
-    rule.field = defaultField.value as string;
+    rule.field = defaultField ? (defaultField.value as string) : (rule.field as string);
     rs.rules[i] = rule;
-    if (defaultField) {
+    if (defaultField && defaultField.value) {
       this.changeField(defaultField.value as string, rule);
     } else {
       this.handleTouched();

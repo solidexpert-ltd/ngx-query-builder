@@ -1,12 +1,16 @@
 # Angular-QueryBuilder
-A modernized Angular 4+ query builder based on jQuery QueryBuilder. Support for heavy customization with Angular components and provides a flexible way to handle custom data types.
+A modernized Angular 15.x.x - 19.x.x query builder based on jQuery QueryBuilder. Support for heavy customization with Angular components and provides a flexible way to handle custom data types.
 
 # Getting Started
 
 ## Install
 
-- Angular 15 use 15.0.x
-- Angular 19 use 19.0.x
+| Angular Version | Package Version |
+|-----------------|----------------|
+| Angular 20      | 20.x.x         |
+| Angular 19      | 19.x.x         |
+| Angular 18      | 18.0.x         |
+| Angular 15      | 15.0.x         |
 
 `npm install @solidexpert/ngx-query-builder`
 
@@ -129,8 +133,6 @@ classNames: QueryBuilderClassNames = {
 
 ## Customizing with Angular Material
 
-Example of how you can completely customize the query component with another library like Angular Material. For the full example, please look at the [source code](https://github.com/zebzhao/Angular-QueryBuilder/blob/master/demo/src/app/app.component.ts) provided in the demo.
-
 #### `app.component.html`
 
 ```html
@@ -185,13 +187,12 @@ Example of how you can completely customize the query component with another lib
 
 ## Property Bindings Quick Reference
 
-See [documentation](https://zebzhao.github.io/Angular-QueryBuilder/) for more details on interfaces and properties.
 
 #### `query-builder`
 |Name|Type|Required|Default|Description|
 |:--- |:--- |:--- |:--- |:--- |
 |`allowRuleset`|`boolean`|Optional|`true`| Displays the `+ Ruleset` button if `true`. |
-|`allowCollapse`|`boolean`|Optional|`false`| Enables collapsible rule sets if `true`. ([See Demo](https://zebzhao.github.io/Angular-QueryBuilder/demo/)) |
+|`allowCollapse`|`boolean`|Optional|`false`| Enables collapsible rule sets if `true`. () |
 |`classNames`|`object`|Optional|| CSS class names for different child elements in `query-builder` component. |
 |`config`|`QueryBuilderConfig`|Required|| Configuration object for the main component. |
 |`data`|`Ruleset`|Optional|| (Use `ngModel` or `value` instead.) |
@@ -204,7 +205,6 @@ See [documentation](https://zebzhao.github.io/Angular-QueryBuilder/) for more de
 
 ## Structural Directives
 
-Use these directives to replace different parts of query builder with custom components. See [example](#customizing-with-angular-material), or [demo](https://zebzhao.github.io/Angular-QueryBuilder/demo/) to see how it's done.
 
 #### `queryInput`
 
@@ -296,9 +296,16 @@ Directive to replace the default remove single rule button component.
 |`removeRule`|`(rule: Rule) => void`|Function to handle removing a rule|
 
 ## Dependencies
-- Angular 8+
+- Angular 19+
 
 That's it.
 
+## Testing
+
+Run the unit test suite to ensure the built-in behaviours of `QueryBuilderComponent` remain stable.
+
+- Install dependencies with `npm install`.
+- Execute `npm run test` (or `ng test`) from the workspace root to run the Karma/Jasmine specs.
+- The component tests cover default rule creation, field change handling, multiselect coercion, and custom field validations.
+
 # Workflow
-See the [angular-library-seed](https://github.com/trekhleb/angular-library-seed) project for details on how to build and run tests.

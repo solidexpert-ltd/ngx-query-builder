@@ -1,38 +1,42 @@
 {
-  "name": "solidex",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build @solidexpert/ngx-query-builder",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+  "name": "@solidexpert/ngx-query-builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solidexpert-ltd/ngx-query-builder"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/cli": "^20.0.0",
+  "description": "Angular library for building query strings",
+  "keywords": [
+    "angular",
+    "query",
+    "builder",
+    "string",
+    "query-string"
+  ],
+  "author": "Solidexpert",
+  "license": "MIT",
+  "homepage": "https://solid.expert",
+  "version": "20.3.0",
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json",
+    "pack": "npm run build && cd dist && npm pack"
+  },
+  "peerDependencies": {
     "@angular/common": "^20.0.0",
     "@angular/core": "^20.0.0",
-    "@angular/forms": "^20.0.0",
-    "@angular/platform-browser": "^20.0.0",
-    "@angular/platform-browser-dynamic": "^20.0.0",
-    "@angular/router": "^20.0.0",
-    "rxjs": "~7.8.1",
-    "tslib": "^2.6.2",
-    "zone.js": "~0.15.0"
+    "@angular/forms": "^20.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.6.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^20.0.0",
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
     "@angular/compiler-cli": "^20.0.0",
-    "@types/jasmine": "~4.3.0",
-    "@types/node": "^20.12.7",
-    "jasmine-core": "~5.1.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "ng-packagr": "^20.0.0",
-    "typescript": "~5.8.2"
+    "@angular/core": "^20.0.0",
+    "@angular/platform-server": "^20.0.0",
+    "@ngrx/store": "^20.0.0",
+    "ng-packagr": "^20.1.0",
+    "rxjs": "^7.8.1",
+    "typescript": "~5.8.0"
   }
 }
