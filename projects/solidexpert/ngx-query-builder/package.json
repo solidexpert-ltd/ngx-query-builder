@@ -15,10 +15,10 @@
   "author": "Solidexpert",
   "license": "MIT",
   "homepage": "https://solid.expert",
-  "version": "19.2.6",
+  "version": "19.2.7",
   "peerDependencies": {
-    "@angular/common": "~19.0.0",
-    "@angular/core": "~19.0.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   },
   "dependencies": {
     "tslib": "^2.6.2"

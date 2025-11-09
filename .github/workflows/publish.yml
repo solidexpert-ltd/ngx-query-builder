@@ -19,6 +19,47 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org/'
 
+      - name: Update package version
+        env:
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const rootPkgPath = path.resolve('package.json');
+          const libPkgPath = path.resolve('projects/solidexpert/ngx-query-builder/package.json');
+
+          const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+          const rootPkg = readJson(rootPkgPath);
+          const libPkg = readJson(libPkgPath);
+
+          const angularVersionSource =
+            (rootPkg.dependencies && rootPkg.dependencies['@angular/core']) ||
+            (libPkg.peerDependencies && libPkg.peerDependencies['@angular/core']);
+
+          if (!angularVersionSource) {
+            throw new Error('Unable to determine Angular version from dependencies.');
+          }
+
+          const cleaned = angularVersionSource.replace(/^[~^]/, '');
+          const [angularMajor = '0', angularMinor = '0'] = cleaned.split('.');
+          const buildNumber = process.env.GITHUB_RUN_NUMBER;
+
+          if (!buildNumber) {
+            throw new Error('GITHUB_RUN_NUMBER is not defined.');
+          }
+
+          const nextVersion = `${angularMajor}.${angularMinor}.${buildNumber}`;
+
+          libPkg.version = nextVersion;
+
+          fs.writeFileSync(libPkgPath, JSON.stringify(libPkg, null, 2) + '\n');
+
+          console.log(`Updated package version to ${nextVersion}`);
+          NODE
+
       - name: Install dependencies
         run: npm i
 
