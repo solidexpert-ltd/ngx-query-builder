@@ -35,7 +35,6 @@
       }
     }
   },
-  "defaultProject": "@solidexpert/ngx-query-builder",
   "cli": {
     "analytics": false
   }

@@ -1,8 +1,8 @@
-import { ValidationErrors } from '@angular/forms';
+import { ValidationErrors } from "@angular/forms";
 
 export interface RuleSet {
   condition: string;
-  rules: Array<RuleSet | Rule>;
+  rules: Array<RuleSet | Rule | any>;
   collapsed?: boolean;
   isChild?: boolean;
 }
@@ -95,12 +95,10 @@ export interface QueryBuilderConfig {
   getOptions?: (field: string) => Option[];
   addRuleSet?: (parent: RuleSet) => void;
   addRule?: (parent: RuleSet) => void;
-  removeRuleSet?: (ruleset: RuleSet, parent: RuleSet) => void;
+  removeRuleSet?: (ruleset: RuleSet, parent?: RuleSet) => void;
   removeRule?: (rule: Rule, parent: RuleSet) => void;
   coerceValueForOperator?: (operator: string, value: any, rule: Rule) => any;
-  calculateFieldChangeValue?: (currentField: Field,
-                               nextField: Field,
-                               currentValue: any) => any;
+  calculateFieldChangeValue?: (currentField: Field, nextField: Field, currentValue: any) => any;
 }
 
 export interface SwitchGroupContext {
