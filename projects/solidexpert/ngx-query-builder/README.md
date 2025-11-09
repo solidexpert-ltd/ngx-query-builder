@@ -7,9 +7,9 @@ A modernized Angular 15.x.x - 19.x.x query builder based on jQuery QueryBuilder.
 
 | Angular Version | Package Version |
 |-----------------|----------------|
-| Angular 15      | 15.0.x         |
-| Angular 18      | 18.0.x         |
 | Angular 19      | 19.x.x         |
+| Angular 18      | 18.0.x         |
+| Angular 15      | 15.0.x         |
 
 `npm install @solidexpert/ngx-query-builder`
 
@@ -312,6 +312,14 @@ Directive to replace the default remove single rule button component.
 - Angular 19+
 
 That's it.
+
+## Testing
+
+Run the unit test suite to ensure the built-in behaviours of `QueryBuilderComponent` remain stable.
+
+- Install dependencies with `npm install`.
+- Execute `npm run test` (or `ng test`) from the workspace root to run the Karma/Jasmine specs.
+- The component tests cover default rule creation, field change handling, multiselect coercion, and custom field validations.
 
 # Workflow
 See the [angular-library-seed](https://github.com/trekhleb/angular-library-seed) project for details on how to build and run tests.
