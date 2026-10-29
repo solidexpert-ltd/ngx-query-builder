@@ -15,28 +15,29 @@
   "author": "Solidexpert",
   "license": "MIT",
   "homepage": "https://solid.expert",
-  "version": "20.3.0",
+  "version": "22.0.0",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
     "pack": "npm run build && cd dist && npm pack"
   },
   "peerDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/core": "^20.0.0",
-    "@angular/forms": "^20.0.0"
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0"
   },
   "dependencies": {
     "tslib": "^2.6.0"
   },
   "devDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/compiler": "^20.0.0",
-    "@angular/compiler-cli": "^20.0.0",
-    "@angular/core": "^20.0.0",
-    "@angular/platform-server": "^20.0.0",
-    "@ngrx/store": "^20.0.0",
-    "ng-packagr": "^20.1.0",
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/compiler-cli": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-server": "^22.0.0",
+    "@ngrx/store": "^22.0.0",
+    "ng-packagr": "^22.0.0",
     "rxjs": "^7.8.1",
-    "typescript": "~5.8.0"
+    "typescript": "~6.0.0"
   }
 }
