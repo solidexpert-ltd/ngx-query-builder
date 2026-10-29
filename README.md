@@ -15,7 +15,9 @@ A modern Angular (v15+) query builder inspired by jQuery QueryBuilder and rebuil
 
 | Angular version | Library tag | Notes |
 |-----------------|-------------|-------|
-| 20.x            | `@solidexpert/ngx-query-builder@^20` | Default release line (current) |
+| 22.x            | `@solidexpert/ngx-query-builder@^22` | Default release line (current) |
+| 21.x            | `@solidexpert/ngx-query-builder@^21` | Install explicitly when targeting Angular 21 |
+| 20.x            | `@solidexpert/ngx-query-builder@^20` | Install explicitly when targeting Angular 20 |
 | 19.x            | `@solidexpert/ngx-query-builder@^19` | Install explicitly when targeting Angular 19 |
 | 18.x            | `@solidexpert/ngx-query-builder@^18` | Legacy support branch |
 | 15.x – 17.x     | `@solidexpert/ngx-query-builder@^15` | Final Ivy-era compatible build |
