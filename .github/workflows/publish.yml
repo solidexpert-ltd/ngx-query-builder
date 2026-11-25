@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    environment: production
     permissions:
       contents: read
       id-token: write
@@ -75,6 +76,7 @@ jobs:
       - name: Publish to NPM
         working-directory: dist
         run: |
+          npm --version
           if [ -n "${NPM_CONFIG_USERCONFIG:-}" ] && [ -f "$NPM_CONFIG_USERCONFIG" ]; then
             sed -i '/_authToken/d' "$NPM_CONFIG_USERCONFIG"
           fi
