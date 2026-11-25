@@ -2,7 +2,7 @@
   "name": "@solidexpert/ngx-query-builder",
   "repository": {
     "type": "git",
-    "url": "https://github.com/solidexpert-ltd/ngx-query-builder"
+    "url": "git+https://github.com/solidexpert-ltd/ngx-query-builder.git"
   },
   "description": "Angular library for building query strings",
   "keywords": [
