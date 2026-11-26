@@ -40,22 +40,23 @@ jobs:
           const libPkg = readJson(libPkgPath);
 
           const angularVersionSource =
+            (rootPkg.devDependencies && rootPkg.devDependencies['@angular/core']) ||
             (rootPkg.dependencies && rootPkg.dependencies['@angular/core']) ||
-            (libPkg.peerDependencies && libPkg.peerDependencies['@angular/core']);
+            (rootPkg.peerDependencies && rootPkg.peerDependencies['@angular/core']);
 
           if (!angularVersionSource) {
             throw new Error('Unable to determine Angular version from dependencies.');
           }
 
-          const cleaned = angularVersionSource.replace(/^[~^]/, '');
-          const [angularMajor = '0', angularMinor = '0'] = cleaned.split('.');
+          const cleaned = String(angularVersionSource).replace(/^[^0-9]*/, '');
+          const [angularMajor = '0'] = cleaned.split('.');
           const buildNumber = process.env.GITHUB_RUN_NUMBER;
 
           if (!buildNumber) {
             throw new Error('GITHUB_RUN_NUMBER is not defined.');
           }
 
-          const nextVersion = `${angularMajor}.${angularMinor}.${buildNumber}`;
+          const nextVersion = `${angularMajor}.0.${buildNumber}`;
 
           libPkg.version = nextVersion;
 
